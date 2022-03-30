@@ -1,10 +1,9 @@
-const STATUS = 'STATUS';
+const STATUS = 'bookStore/categories/STATUS';
 const INITIAL_STATE = [];
 
-export function checkStatus(id) {
+export function checkStatus() {
   return {
     type: STATUS,
-    payload: id,
   };
 }
 

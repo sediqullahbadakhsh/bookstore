@@ -19,16 +19,9 @@ export function removeBook(id) {
 export default function reducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case ADD:
-      return [
-        ...state,
-        {
-          id: 1,
-          title: action.payload.title,
-          author: action.payload.author,
-        },
-      ];
+      return [...state, action.payload];
     case REMOVE:
-      return state.filter((book) => book.id !== action.payload.id);
+      return state.filter((book) => book.id !== action.payload);
     default:
       return state;
   }
