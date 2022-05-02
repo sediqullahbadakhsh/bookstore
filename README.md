@@ -24,7 +24,6 @@ $ npm run start # this will make webpack watching for your changes in code
 
 - React
 - Redux
-- Webpack
 - JavaScript
 - CSS
 
