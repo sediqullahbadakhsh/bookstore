@@ -1,15 +1,15 @@
-const ADD = 'bookstore/books/ADD';
-const REMOVE = 'bookstore/books/REMOVE';
+const ADD_BOOK = 'bookstore/books/ADD_BOOK';
+const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 const FETCH_SUCCESS = 'bookstore/books/FETCH_SUCCESS';
-const INITIAL_STATE = [];
+const initialState = [];
 
 export const addBook = (payload) => ({
-  type: ADD,
+  type: ADD_BOOK,
   payload,
 });
 
 export const remove = (id) => ({
-  type: REMOVE,
+  type: REMOVE_BOOK,
   id,
 });
 
@@ -20,12 +20,15 @@ export const fetchBooksSuccess = (payload) => ({
 
 export const fetchBooks = () => async (dispatch) => {
   const response = await fetch(
-    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/NeBZxtMC5rs5lYysZxi6/books',
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mK4DAj0qQVIzY4zAccYh/books',
   );
   const bookData = await response.json();
   const books = Object.entries(bookData).map(([key, value]) => ({
     item_id: key,
-    title: value[0].title,
+    title: {
+      title: value[0].title.title,
+      author: value[0].title.author,
+    },
     category: value[0].category,
   }));
   dispatch(fetchBooksSuccess(books));
@@ -33,7 +36,7 @@ export const fetchBooks = () => async (dispatch) => {
 export const removeBook = (id) => async (dispatch) => {
   dispatch(remove(id));
   await fetch(
-    `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/NeBZxtMC5rs5lYysZxi6/books/${id}`,
+    `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mK4DAj0qQVIzY4zAccYh/books/${id}`,
     {
       method: 'DELETE',
       body: JSON.stringify({ item_id: id }),
@@ -44,7 +47,7 @@ export const removeBook = (id) => async (dispatch) => {
 export const addBookToAPI = (payload) => async (dispatch) => {
   dispatch(addBook(payload));
   await fetch(
-    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/NeBZxtMC5rs5lYysZxi6/books',
+    'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/mK4DAj0qQVIzY4zAccYh/books',
     {
       method: 'POST',
       body: JSON.stringify(payload),
@@ -53,12 +56,14 @@ export const addBookToAPI = (payload) => async (dispatch) => {
   );
 };
 
-const reducer = (state = INITIAL_STATE, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD:
-      return [...state, action.payload];
-    case REMOVE:
+    case REMOVE_BOOK:
       return state.filter((book) => book.item_id !== action.id);
+    case ADD_BOOK:
+      return [...state, action.payload];
+    case FETCH_SUCCESS:
+      return [...action.payload];
     default:
       return state;
   }
