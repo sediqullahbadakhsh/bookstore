@@ -4,6 +4,10 @@
 
 > The Bookstore is a website that allow us to View a list of books, Add a new books and Remove a selected book.
 
+## Live Demo
+
+[BookStore](https://bookstore231.netlify.app/)
+
 ## Setup
 
 ### Clone this repository
@@ -17,7 +21,7 @@ $ cd bookstore
 
 ```bash
 $ npm install
-$ npm run start # this will make webpack watching for your changes in code
+$ npm run start
 ```
 
 ## Built With
@@ -30,6 +34,8 @@ $ npm run start # this will make webpack watching for your changes in code
 ## Authors
 
 👤 **Sediqullah Badakhsh**
+[LinkedIn](https://www.linkedin.com/in/sediqullah-badakhsh-999053a8/)
+[GitHub](https://github.com/sediqullahbadakhsh)
 
 ## 🤝 Contributing
 
