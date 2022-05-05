@@ -3,18 +3,18 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/books';
 
 const Book = ({
-  title, author, id, category,
+  title, id, category, author,
 }) => {
   const dispatch = useDispatch();
   return (
-    <li id={id}>
+    <li>
       <h3>{category}</h3>
       <h2>{title}</h2>
       <h3>{author}</h3>
       <button
         type="button"
-        onClick={(e) => {
-          dispatch(removeBook(e.target.parentNode.id));
+        onClick={() => {
+          dispatch(removeBook(id));
         }}
       >
         Remove

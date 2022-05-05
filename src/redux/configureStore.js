@@ -1,9 +1,15 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger';
-import booksReducer from './books/books';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import booksReducer, { fetchBooks } from './books/books';
 
 const reducer = combineReducers({
   booksReducer,
 });
-const store = createStore(reducer, applyMiddleware(logger));
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(thunk, logger)),
+);
+store.dispatch(fetchBooks());
 export default store;

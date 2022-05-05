@@ -1,29 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch, useSelector } from 'react-redux';
-import { addBook } from '../redux/books/books';
+import { useDispatch } from 'react-redux';
+import { addBookToAPI } from '../redux/books/books';
 
 const categories = ['Action', 'Science Fiction', 'Economy'];
 
 const AddNew = () => {
-  const books = useSelector((state) => state.booksReducer);
   const dispatch = useDispatch();
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [category, setCategory] = useState('');
+
   const submitBookToStore = (e) => {
     e.preventDefault();
-    if (
-      e.target.parentNode.lastChild[0].value
-      && e.target.parentNode.lastChild[1].value
-      && e.target.parentNode.lastChild[2].value
-    ) {
+    if (title && category && author) {
       const newBook = {
-        id: uuidv4(),
-        title: e.target.parentNode.lastChild[0].value,
-        author: e.target.parentNode.lastChild[1].value,
-        category: e.target.parentNode.lastChild[2].value,
+        item_id: uuidv4(),
+        title: { title, author },
+
+        category,
       };
-      dispatch(addBook(newBook));
-      e.target.parentNode.lastChild[0].value = '';
-      e.target.parentNode.lastChild[1].value = '';
+      dispatch(addBookToAPI(newBook));
+      setTitle('');
+      setAuthor('');
+      setCategory('');
     }
   };
   return (
@@ -34,18 +34,28 @@ const AddNew = () => {
           type="text"
           placeholder="Book title"
           name="title"
-          value={books.title}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
         <input
           type="text"
           placeholder="Book author"
           name="author"
-          value={books.author}
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
         />
-        <select placeholder="Category" name="category">
-          {categories.map((category) => (
-            <option key={uuidv4()} value={category}>
-              {category}
+        <select
+          placeholder="Category"
+          name="category"
+          value={category}
+          onChange={(e) => setCategory(e.target.value)}
+        >
+          <option value="" disabled>
+            Choose Category
+          </option>
+          {categories.sort().map((categ) => (
+            <option key={uuidv4()} value={categ}>
+              {categ}
             </option>
           ))}
         </select>
