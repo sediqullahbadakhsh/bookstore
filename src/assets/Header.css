@@ -21,7 +21,7 @@ a {
 
 .logo {
   font-size: 14px;
-  color: #0290ff;
+  color: #0374ca;
 }
 
 .navigation {
@@ -29,12 +29,4 @@ a {
   gap: 20px;
   font-size: 20px;
   color: #121212;
-}
-
-.profile {
-  border: solid 2px rgb(221, 221, 221);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../assets/Header.css';
+import { CgProfile } from 'react-icons/cg';
 
 const Header = () => (
   <header className="header">
@@ -14,7 +15,9 @@ const Header = () => (
       </nav>
     </div>
     <div className="right-header">
-      <div className="profile" />
+      <div className="icon">
+        <CgProfile size={40} />
+      </div>
     </div>
   </header>
 );
