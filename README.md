@@ -34,8 +34,8 @@ $ npm run start
 ## Authors
 
 👤 **Sediqullah Badakhsh**
-[LinkedIn](https://www.linkedin.com/in/sediqullah-badakhsh-999053a8/)
-[GitHub](https://github.com/sediqullahbadakhsh)
+[LinkedIn:](https://www.linkedin.com/in/sediqullah-badakhsh-999053a8/)
+[GitHub:](https://github.com/sediqullahbadakhsh)
 
 ## 🤝 Contributing
 
@@ -46,3 +46,13 @@ Feel free to check the [issues page](https://github.com/sediqullahbadakhsh/books
 ## Show your support
 
 Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
+
+## License
+
+This project is [MIT](./MIT.md) licensed.
