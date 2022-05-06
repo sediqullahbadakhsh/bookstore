@@ -1,12 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto+Slab:wght@700&display=swap");
+
 .header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   border-bottom: solid 1px rgb(221, 221, 221);
-  padding: 20px 10%;
-  font-family: sans-serif;
-  margin-bottom: 30px;
+  padding: 20px 8%;
+  font-family: Montserrat, sans-serif;
 }
 
 .left-header {
@@ -20,21 +21,17 @@ a {
 }
 
 .logo {
-  font-size: 14px;
+  font-size: 1.1rem;
   color: #0290ff;
+  margin: 0 2.938rem 0.125rem 0;
+  font-weight: bold;
 }
 
 .navigation {
   display: flex;
   gap: 20px;
-  font-size: 20px;
   color: #121212;
-}
-
-.profile {
-  border: solid 2px rgb(221, 221, 221);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
+  letter-spacing: 1.9px;
+  opacity: 0.5;
+  font-size: 0.813rem;
 }
