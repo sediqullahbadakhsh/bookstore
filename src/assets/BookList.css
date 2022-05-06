@@ -62,7 +62,7 @@
   color: #4386bf;
   border: none;
   background-color: #fff;
-  border-right: 1px solid #0290ff;
+  border-right: 1px solid #e8e8e8;
 }
 
 .button:nth-of-type(2) {
@@ -75,7 +75,7 @@
 }
 
 hr {
-  color: #e8e8e8;
+  border: solid 1px #e8e8e8;
   margin: auto;
   width: 85%;
 }
@@ -136,7 +136,7 @@ hr {
 .oval {
   display: flex;
   gap: 1.313rem;
-  border-right: 1px solid #c4c4c4;
+  border-right: 1px solid #e8e8e8;
   margin: 3.125rem 3.688rem 0 0;
   height: 4.375rem;
 }

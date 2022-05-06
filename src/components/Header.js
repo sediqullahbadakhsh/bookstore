@@ -15,7 +15,7 @@ const Header = () => (
       </nav>
     </div>
     <div className="right-header">
-      <div className="icon">
+      <div className="icon" style={{ color: ' #0290ff' }}>
         <CgProfile size={40} />
       </div>
     </div>
